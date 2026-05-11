@@ -59,16 +59,16 @@ public class Main{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        Contadigital cd = new Contadigital("Lucas", 2.500, true);
+        Contadigital cd = new Contadigital("Lucas", 2500, true);
 
-        System.out.println(titular.getTitular());
-        System.out.println(saldo.gerSaldo());
-        System.out.println(contaAtiva.getContaAtiva());
+        System.out.println(cd.getTitular());
+        System.out.println(cd.getSaldo());
+        System.out.println(cd.getContaAtiva());
 
         cd.mostrarDados();
         cd.depositar(500);
         cd.sacar(200);
-        cd.sacar(2.900);
+        cd.sacar(2900);
         cd.desativarConta();
         cd.depositar(500);
     }
