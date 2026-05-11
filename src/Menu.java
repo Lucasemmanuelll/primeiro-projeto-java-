@@ -45,6 +45,35 @@ public class Menu {
         public void Cadastrousuario(){
 
         }
+//1 - Criar conta: nome de acesso e senha.
+//2 - Depositar
+//3 - Sacar
+//4 - Mostrar dados
+//5 - Encerrar
+
+    public  void mostrarDadosmenu(){
+        System.out.println ("Quais das opções deseja acessar: ");
+        System.out.println ("""
+            1- para Depositar.
+            2- para Sacar.
+            3- para Mostrar dados
+            4- Encerrar operação.
+            """);
+        int opcao = sc.nextInt();
+        switch (opcao){
+            case 1:
+                System.out.println(cd.mostrarDados());
+                break;
+            case 2:
+                System.out.println(cd.sacar());
+                break;
+            case 3://array listy dos clientes(cliente específico) seus dados de depósito, saques e tipo de conta + titular
+            break;
+            case 4:
+                System.out.println("Operação encerrada.");
+                break;
+        }
+    }
     }
 
     public  void mostrarDados(){
