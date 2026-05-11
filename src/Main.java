@@ -32,7 +32,7 @@ class Contadigital{
         this.contaAtiva = contaAtiva;
     }
     public void depositar(double valor ){
-        if(contaAtiva == true && saldo > 0){
+        if(contaAtiva){
             System.out.println("Depósito feito!");
         }else{
             System.out.println("Processo de depósito inválido, conta desativada ou saldo negativo.");
@@ -59,7 +59,7 @@ public class Main{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        Contadigital cd = new Contadigital("Lucas", 2500, true);
+        Contadigital cd = new Contadigital("Lucas", 2500,true);
 
         System.out.println(cd.getTitular());
         System.out.println(cd.getSaldo());
