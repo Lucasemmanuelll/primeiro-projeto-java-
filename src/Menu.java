@@ -1,9 +1,3 @@
-//1 - Criar conta: nome de acesso e senha.
-//2 - Depositar
-//3 - Sacar
-//4 - Mostrar dados
-//5 - Encerrar
-
 import java.util.Scanner;
 public class Menu {
     Scanner sc = new Scanner(System.in);
@@ -36,13 +30,13 @@ public class Menu {
         int senha = sc.nextInt();
         cpfUsuario = cpf;
         loginSenha = senha;
-        if(cpfUsuario == ){//cadastro do usuário armazenado
+        if(cpfUsuario ==  ){//cadastro do usuário armazenado
 
         }else{
-            System.out.println("CPF inexistente, tente se cadastrar."// + class cadastro  );
+            System.out.println("CPF inexistente, tente se cadastrar.");// + class cadastro
         }
     }
-        public void Cadastrousuario(){
+        public void Cadastrousuario(){//como cadastrar os usuários?
 
         }
 //1 - Criar conta: nome de acesso e senha.
@@ -76,10 +70,3 @@ public class Menu {
     }
     }
 
-    public  void mostrarDados(){
-        System.out.println ("""
-                CPF de Acesso: 
-                Senha de Acesso: 
-                """);
-    }
-}
