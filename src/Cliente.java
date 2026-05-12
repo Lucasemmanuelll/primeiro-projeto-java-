@@ -4,13 +4,7 @@ public class Cliente {
         private String cidade;
         private String cpf;
 
-        public Cliente(
-                String nome,
-                int idade,
-                String cidade,
-                String cpf
-        ) {
-
+        public Cliente(String nome,int idade,String cidade,String cpf) {
             this.nome = nome;
             this.idade = idade;
             this.cidade = cidade;
