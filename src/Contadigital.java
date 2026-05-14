@@ -29,10 +29,12 @@ public class Contadigital {
     public void setContaAtiva(boolean contaAtiva){
         this.contaAtiva = contaAtiva;
     }
-    public void depositar(double valor ){
-        if(contaAtiva){
-            System.out.println("Depósito feito!");
-        }else{
+
+    public void depositar(double valor) {
+        if (valor > 1 && contaAtiva) {
+            System.out.println("Depósito feito!" + (valor + saldo));
+            this.saldo = saldo + valor;
+        } else {
             System.out.println("Processo de depósito inválido, conta desativada ou saldo negativo.");
         }
     }
