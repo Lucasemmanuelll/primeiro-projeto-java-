@@ -50,6 +50,20 @@ public class Cliente {
         return cpf;
     }
 
+    public void Loginusuario(int cpf, int senha){
+        System.out.println("Digite seu CPF de acesso: ");
+        int cpf = sc.nextInt();
+        System.out.println("Digite sua SENHA de acesso: ");
+        int senha = sc.nextInt();
+        cpfUsuario = cpf;
+        loginSenha = senha;
+        if(cpfUsuario ==  ){//cadastro do usuário armazenado
+
+        }else{
+            System.out.println("CPF inexistente, tente se cadastrar.");// + class cadastro
+        }
+    }
+
     @Override
     public String toString() {
         return "Nome do Cliente: " + this.getNome() + " | " + "idade: " + this.getIdade() + " | " + "CPF: " + this.getCpf() + " | " + "Cidade: " + this.getCidade();
