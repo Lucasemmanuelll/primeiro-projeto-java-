@@ -39,6 +39,11 @@ public class Menu {
         public void Cadastrousuario(){//como cadastrar os usuários?
 
         }
+    public void mostrarDados(){
+        System.out.println("Titular: " +titular+ "| Saldo: " +saldo+ "| Conta ativa: " +contaAtiva);
+    }
+}
+
 //1 - Criar conta: nome de acesso e senha.
 //2 - Depositar
 //3 - Sacar
