@@ -3,57 +3,61 @@ public class Contadigital {
     private double saldo;
     private boolean contaAtiva;
 
-    public Contadigital (String titular, double saldo, boolean contaAtiva){
+    public Contadigital(String titular, double saldo, boolean contaAtiva) {
         this.titular = titular;
         this.saldo = saldo;
-        this.contaAtiva = true;
+        this.contaAtiva = contaAtiva;
     }
 
-    public String getTitular(){
+    public String getTitular() {
         return titular;
     }
-    public double getSaldo(){
+    public double getSaldo() {
         return saldo;
     }
-    public boolean getContaAtiva(){
+
+    public boolean getContaAtiva() {
         return contaAtiva;
     }
-    public void setTitular(String titular){
+
+    public void setTitular(String titular) {
         this.titular = titular;
     }
-    public void setSaldo(double saldo){
-        if(saldo > 0 ){
+
+    public void setSaldo(double saldo) {
+        if (saldo > 0) {
             this.saldo = saldo;
         }
     }
-    public void setContaAtiva(boolean contaAtiva){
+
+    public void setContaAtiva(boolean contaAtiva) {
         this.contaAtiva = contaAtiva;
     }
 
     public void depositar(double valor) {
-        if (valor > 1 && contaAtiva) {
+        if (valor > 0 && contaAtiva) {
             System.out.println("Depósito feito!" + (valor + saldo));
             this.saldo = saldo + valor;
         } else {
             System.out.println("Processo de depósito inválido, conta desativada ou saldo negativo.");
         }
     }
-    public void sacar( double saldoSuficiente){
 
-        if (saldoSuficiente <= saldo && contaAtiva == true) {
+    public void sacar(double saldoSuficiente) {
+
+        if (saldoSuficiente <= saldo && contaAtiva) {
             System.out.println("Saque de" + saldoSuficiente + " feito!");
-        double saldoSubtraido = saldo - saldoSuficiente;
-            System.out.println("Sobrou apenas: " +saldoSubtraido+ "de saldo.");
+            saldo -= saldoSuficiente;
+            System.out.println("Sobrou apenas: " +saldo+ "de saldo.");
         } else {
             System.out.println("Valor de saque insuficiente para: " + saldo);
         }
-    }
-    public void desativarConta(){
-        contaAtiva = false;
+
+
     }
 
-    public void mostrarDados(){
-        System.out.println("Titular: " +titular+ "| Saldo: " +saldo+ "| Conta ativa: " +contaAtiva);
+    public void desativarConta() {
+        contaAtiva = false;
     }
 }
 
