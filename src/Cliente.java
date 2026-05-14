@@ -1,4 +1,7 @@
 public class Cliente {
+// Métodos de logar: senha e cpf?
+//class cliente para logar ou para armazenar clientes em arrays?
+//criar class login somente para logar?
 
     private String nome;
     private int idade;
