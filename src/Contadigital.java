@@ -38,10 +38,12 @@ public class Contadigital {
     }
     public void sacar( double saldoSuficiente){
 
-        if(saldoSuficiente <= saldo || contaAtiva == true){
-            System.out.println("Saque de" +saldoSuficiente+ " feito!");
-        }else{
-            System.out.println("Valor de saque insuficiente para: " +saldo);
+        if (saldoSuficiente <= saldo && contaAtiva == true) {
+            System.out.println("Saque de" + saldoSuficiente + " feito!");
+        double saldoSubtraido = saldo - saldoSuficiente;
+            System.out.println("Sobrou apenas: " +saldoSubtraido+ "de saldo.");
+        } else {
+            System.out.println("Valor de saque insuficiente para: " + saldo);
         }
     }
     public void desativarConta(){
