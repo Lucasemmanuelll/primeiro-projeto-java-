@@ -60,6 +60,29 @@ public class Cadastro{
         this.conta = conta;
     }
 }
+public class CadastroDeClientes {
+
+    private ArrayList<Cliente> listaDeClientes = new ArrayList<>();
+
+    public void adicionarCliente(Cliente cliente) {
+        listaDeClientes.add(cliente);
+    }
+
+    public void listaDosCadastrados(){
+        for(Cliente cliente: listaDeClientes) {
+            System.out.println(cliente);
+        }
+    }
+
+    public Cliente buscarCpf(String cpfBuscado) {
+        for (Cliente cliente: listaDeClientes) {
+            if (cpfBuscado.equals(cliente.getCpfUsuario())) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+}
 
     public void Loginusuario(Menu cd){
         Scanner sc = new Scanner(System.in);
