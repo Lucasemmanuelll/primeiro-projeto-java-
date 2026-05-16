@@ -59,6 +59,7 @@ public class Cadastro{
     public void setConta(Contadigital conta) {
         this.conta = conta;
     }
+
 }
 public class CadastroDeClientes {
 
