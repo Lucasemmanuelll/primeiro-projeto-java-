@@ -58,5 +58,11 @@ public class Contadigital {
     public void desativarConta() {
         contaAtiva = false;
     }
-}
 
+    public void mostrarDados() {
+        System.out.println("Titular: " + cliente.getNome());
+        System.out.println("CPF: " + cliente.getCpf());
+        System.out.println("Saldo: R$ " + saldo);
+        System.out.println("Conta ativa: " + contaAtiva);
+    }
+}
