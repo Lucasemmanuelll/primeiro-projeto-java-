@@ -22,25 +22,19 @@ public class Menu {
     }
                 public void setCpfUsuario(int cpfUsuario){
 
-                        this.cpfUsuario= cpfUsuario;
-                }
-                public void setTitular(String titular){
-                        this.titular = titular;
-                }
-
-    public  void mostrardadosmenu(Contadigital cd){
-        System.out.println("Digite seu CPF para logar com sua conta:");
-        int cpfUsuario = sc.nextInt();
-
-        if(cpfUsuario == ){//se cpf do usuário for encontrado, mostrar opçoes do Switch
-            System.out.println ("Quais das opções deseja acessar: ");
-            System.out.println ("""
-            1- para Depositar.
-            2- para Sacar.
-            3- para Mostrar dados
-            4- Encerrar operação.
-            """);
-            int opcao = sc.nextInt();
+        do {
+            System.out.println("""
+                    
+                    1 - Criar conta
+                    2 - Depositar
+                    3 - Sacar
+                    4 - Mostrar dados
+                    5 - Desativar conta
+                    0 - Encerrar
+                    """);
+            System.out.print("Escolha uma opcao: ");
+            opcao = sc.nextInt();
+            sc.nextLine();
 
             switch (opcao){
                 case 1:
