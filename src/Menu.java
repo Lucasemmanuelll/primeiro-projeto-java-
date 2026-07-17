@@ -50,10 +50,50 @@ public class Menu {
                     System.out.println(cd   .desativarConta());
                     System.out.println("Operação encerrada.");
                     break;
+                case 0:
+                    System.out.println("Operacao encerrada.");
+                    break;
+                default:
+                    System.out.println("Opcao invalida.");
             }
-        }else{
-            System.out.println(cd.Loginusuario());
+        } while (opcao != 0);
+    }
+
+    private void criarConta() {
+        System.out.print("Nome do titular: ");
+        String nome = sc.nextLine();
+
+        System.out.print("CPF: ");
+        String cpf = sc.nextLine();
+
+        if (cadastro.buscarContaPorCpf(cpf) != null) {
+            System.out.println("Ja existe uma conta com esse CPF.");
+            return;
         }
+
+        System.out.print("Senha: ");
+        String senha = sc.nextLine();
+
+        Cliente cliente = new Cliente(nome, cpf, senha);
+        Contadigital conta = new Contadigital(cliente, 0);
+
+        if (cadastro.cadastrarConta(conta)) {
+            System.out.println("Conta criada com sucesso.");
+        } else {
+            System.out.println("Limite de contas atingido.");
+        }
+    }
+
+    private void depositar() {
+        Contadigital conta = pedirContaLogada();
+
+        if (conta != null) {
+            System.out.print("Valor do deposito: ");
+            double valor = sc.nextDouble();
+            sc.nextLine();
+            conta.depositar(valor);
+        }
+    }
 
     }
     }
