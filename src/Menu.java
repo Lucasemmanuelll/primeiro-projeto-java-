@@ -1,26 +1,11 @@
-//1 - Criar conta: nome de acesso e senha.
-//2 - Depositar
-//3 - Sacar
-//4 - Mostrar dados
-//5 - Encerrar
 import java.util.Scanner;
+
 public class Menu {
-    Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
+    private Cadastro cadastro = new Cadastro(10);
 
-    private int cpfUsuario;
-    private String titular;
-
-    public Menu(int cpfUsuario, String titular){
-        this.cpfUsuario = cpfUsuario ;
-        this.titular = titular;
-    }
-    public int getCpfusuario(){
-        return cpfUsuario;
-    }
-    public String getTitular(){
-        return titular;
-    }
-                public void setCpfUsuario(int cpfUsuario){
+    public void iniciar() {
+        int opcao;
 
         do {
             System.out.println("""
@@ -36,19 +21,21 @@ public class Menu {
             opcao = sc.nextInt();
             sc.nextLine();
 
-            switch (opcao){
+            switch (opcao) {
                 case 1:
-                    System.out.println(cd.depositar(5000));
+                    criarConta();
                     break;
                 case 2:
-                    System.out.println(cd.sacar(2000));
+                    depositar();
                     break;
                 case 3:
-                    System.out.println(cd.mostrardadosmenu());//array listy dos clientes(cliente específico) seus dados de depósito, saques e tipo de conta + titular
+                    sacar();
                     break;
                 case 4:
-                    System.out.println(cd   .desativarConta());
-                    System.out.println("Operação encerrada.");
+                    mostrarDados();
+                    break;
+                case 5:
+                    desativarConta();
                     break;
                 case 0:
                     System.out.println("Operacao encerrada.");
@@ -95,6 +82,48 @@ public class Menu {
         }
     }
 
-    }
+    private void sacar() {
+        Contadigital conta = pedirContaLogada();
+
+        if (conta != null) {
+            System.out.print("Valor do saque: ");
+            double valor = sc.nextDouble();
+            sc.nextLine();
+            conta.sacar(valor);
+        }
     }
 
+    private void mostrarDados() {
+        Contadigital conta = pedirContaLogada();
+
+        if (conta != null) {
+            conta.mostrarDados();
+        }
+    }
+
+    private void desativarConta() {
+        Contadigital conta = pedirContaLogada();
+
+        if (conta != null) {
+            conta.desativarConta();
+            System.out.println("Conta desativada.");
+        }
+    }
+
+    private Contadigital pedirContaLogada() {
+        System.out.print("CPF: ");
+        String cpf = sc.nextLine();
+
+        System.out.print("Senha: ");
+        String senha = sc.nextLine();
+
+        Contadigital conta = cadastro.buscarContaPorCpf(cpf);
+
+        if (conta != null && conta.getCliente().senhaCorreta(senha)) {
+            return conta;
+        }
+
+        System.out.println("CPF ou senha invalidos.");
+        return null;
+    }
+}
