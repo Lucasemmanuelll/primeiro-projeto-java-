@@ -1,129 +1,61 @@
 import java.util.Scanner;
-
 public class Menu {
-    private Scanner sc = new Scanner(System.in);
-    private Cadastro cadastro = new Cadastro(10);
 
-    public void iniciar() {
-        int opcao;
+    private CadastroDeClientes cadastro;
 
-        do {
-            System.out.println("""
-                    
-                    1 - Criar conta
-                    2 - Depositar
-                    3 - Sacar
-                    4 - Mostrar dados
-                    5 - Desativar conta
-                    0 - Encerrar
-                    """);
-            System.out.print("Escolha uma opcao: ");
-            opcao = sc.nextInt();
-            sc.nextLine();
+    Scanner ler = new Scanner(System.in);
 
-            switch (opcao) {
-                case 1:
-                    criarConta();
-                    break;
-                case 2:
-                    depositar();
-                    break;
-                case 3:
-                    sacar();
-                    break;
-                case 4:
-                    mostrarDados();
-                    break;
-                case 5:
-                    desativarConta();
-                    break;
-                case 0:
-                    System.out.println("Operacao encerrada.");
-                    break;
-                default:
-                    System.out.println("Opcao invalida.");
-            }
-        } while (opcao != 0);
+    //método construtor da classe
+    public
+    Menu(CadastroDeClientes cadastro){
+        this.cadastro = cadastro;
     }
 
-    private void criarConta() {
-        System.out.print("Nome do titular: ");
-        String nome = sc.nextLine();
+    public void exibirMenu(){
+        System.out.println("-----------Menu----------");
+        System.out.println("1 – Cadastrar");
+        System.out.println("2 – Login");
+        System.out.println("3 – Sair");
 
-        System.out.print("CPF: ");
-        String cpf = sc.nextLine();
-
-        if (cadastro.buscarContaPorCpf(cpf) != null) {
-            System.out.println("Ja existe uma conta com esse CPF.");
-            return;
-        }
-
-        System.out.print("Senha: ");
-        String senha = sc.nextLine();
-
-        Cliente cliente = new Cliente(nome, cpf, senha);
-        Contadigital conta = new Contadigital(cliente, 0);
-
-        if (cadastro.cadastrarConta(conta)) {
-            System.out.println("Conta criada com sucesso.");
-        } else {
-            System.out.println("Limite de contas atingido.");
+        int opcao = ler.nextInt();
+        switch(opcao) {
+            case 1:
+                cadastrarCliente();
+                break;
+            case 2:
+                loginusuario();
+                break;
+            case 3:
+                System.out.println("Saindo...");
+                break;
         }
     }
 
-    private void depositar() {
-        Contadigital conta = pedirContaLogada();
-
-        if (conta != null) {
-            System.out.print("Valor do deposito: ");
-            double valor = sc.nextDouble();
-            sc.nextLine();
-            conta.depositar(valor);
+    public void loginusuario(){
+        System.out.println("Digite seu CPF para cadastro: ");
+        String cpf = ler.next();
+        Cliente buscado = cadastro.buscarCpf(cpf);
+        if(buscado != null){
+            System.out.println("Seja bem-vindo " + buscado.getNome() + " ! ");
+        }else{
+            System.out.println("CPF inexistente, tente se cadastrar.");
         }
     }
 
-    private void sacar() {
-        Contadigital conta = pedirContaLogada();
+    public void cadastrarCliente(){
+        System.out.println("Seu nome: ");
+        String nome = ler.next();
+        System.out.println("Sua idade: ");
+        int idade = ler.nextInt();
+        System.out.println("Sua cidade: ");
+        String cidade = ler.next();
+        System.out.println("Digite seu CPF: ");
+        String cpf = ler.next();
 
-        if (conta != null) {
-            System.out.print("Valor do saque: ");
-            double valor = sc.nextDouble();
-            sc.nextLine();
-            conta.sacar(valor);
-        }
-    }
+        Contadigital conta = new Contadigital(nome, 0.0, true);
+        Cliente cadastrado = new Cliente(nome, idade, cidade, cpf, conta);
+        cadastro.adicionarCliente(cadastrado);
+        System.out.println("Você foi Cadastrado!");
 
-    private void mostrarDados() {
-        Contadigital conta = pedirContaLogada();
-
-        if (conta != null) {
-            conta.mostrarDados();
-        }
-    }
-
-    private void desativarConta() {
-        Contadigital conta = pedirContaLogada();
-
-        if (conta != null) {
-            conta.desativarConta();
-            System.out.println("Conta desativada.");
-        }
-    }
-
-    private Contadigital pedirContaLogada() {
-        System.out.print("CPF: ");
-        String cpf = sc.nextLine();
-
-        System.out.print("Senha: ");
-        String senha = sc.nextLine();
-
-        Contadigital conta = cadastro.buscarContaPorCpf(cpf);
-
-        if (conta != null && conta.getCliente().senhaCorreta(senha)) {
-            return conta;
-        }
-
-        System.out.println("CPF ou senha invalidos.");
-        return null;
     }
 }

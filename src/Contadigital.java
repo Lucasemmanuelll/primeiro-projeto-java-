@@ -9,6 +9,9 @@ public class Contadigital {
         this.contaAtiva = true;
     }
 
+    public Contadigital(String nome, double saldoInicial, boolean b) {
+    }
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -17,7 +20,7 @@ public class Contadigital {
         return saldo;
     }
 
-    public boolean isContaAtiva() {
+    public boolean getContaAtiva() {
         return contaAtiva;
     }
 
@@ -46,7 +49,7 @@ public class Contadigital {
 
     public void mostrarDados() {
         System.out.println("Titular: " + cliente.getNome());
-        System.out.println("CPF: " + cliente.getCpf());
+        System.out.println("CPF: " + cliente.getCpfUsuario());
         System.out.println("Saldo: R$ " + saldo);
         System.out.println("Conta ativa: " + contaAtiva);
     }

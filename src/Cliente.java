@@ -1,24 +1,21 @@
-public class Cliente {
-// Métodos de logar: senha e cpf?
-//class cliente para logar ou para armazenar clientes em arrays?
-//criar class login somente para logar?
-
+public class Cliente{
     private String nome;
     private int idade;
     private String cidade;
-    private String cpf;
+    private String cpfUsuario;
+    private Contadigital conta;
 
-    public Cliente(
-            String nome,
-            int idade,
-            String cidade,
-            String cpf
-    ) {
-
+    public Cliente(String nome,int idade,String cidade,String cpfUsuario, Contadigital conta) {
         this.nome = nome;
         this.idade = idade;
         this.cidade = cidade;
-        this.cpf = cpf;
+        this.cpfUsuario = cpfUsuario;
+        this.conta = conta;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome do Cliente: " + this.getNome() + " | " + "idade: " + this.getIdade() + " | " + "CPF: " + this.getCpfUsuario() + " | " + "Cidade: " + this.getCidade() + " | " + "Conta ativa: " + conta.getContaAtiva();
     }
 
     public void setNome(String nome) {
@@ -33,8 +30,8 @@ public class Cliente {
         this.cidade = cidade;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpfUsuario(String cpfUsuario) {
+        this.cpfUsuario = cpfUsuario;
     }
 
     public String getNome() {
@@ -49,26 +46,15 @@ public class Cliente {
         return cidade;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCpfUsuario() {
+        return cpfUsuario;
     }
 
-    public void Loginusuario(int cpf, int senha){
-        System.out.println("Digite seu CPF de acesso: ");
-        int cpf = sc.nextInt();
-        System.out.println("Digite sua SENHA de acesso: ");
-        int senha = sc.nextInt();
-        cpfUsuario = cpf;
-        loginSenha = senha;
-        if(cpfUsuario ==  ){//cadastro do usuário armazenado
-
-        }else{
-            System.out.println("CPF inexistente, tente se cadastrar.");// + class cadastro
-        }
+    public Contadigital getConta() {
+        return conta;
     }
 
-    @Override
-    public String toString() {
-        return "Nome do Cliente: " + this.getNome() + " | " + "idade: " + this.getIdade() + " | " + "CPF: " + this.getCpf() + " | " + "Cidade: " + this.getCidade();
+    public void setConta(Contadigital conta) {
+        this.conta = conta;
     }
 }
