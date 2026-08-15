@@ -30,18 +30,45 @@ public class Menu {
                 break;
         }
     }
-
-    public void loginusuario(){
+    public void loginusuario() {
         System.out.println("Digite seu CPF para cadastro: ");
         String cpf = ler.next();
         Cliente buscado = cadastro.buscarCpf(cpf);
-        if(buscado != null){
+
+        if(buscado != null) {
             System.out.println("Seja bem-vindo " + buscado.getNome() + " ! ");
-        }else{
+            System.out.println("-----------Menu----------");
+            System.out.println("1 – Consultar saldo");
+            System.out.println("2 – Depositar");
+            System.out.println("3 – Sacar");
+            System.out.println("4 – Sair");
+
+            int opcao2 = ler.nextInt();
+
+            //Segundo switch usando a variável buscado(Cliente encontrado).
+            switch (opcao2) {
+                case 1: //Consultar saldo
+                    System.out.println("Saldo: " + buscado.getConta().getSaldo());
+                    break;
+
+                case 2: //Depositar
+                    System.out.println("Quanto você quer depositar?");
+                    double valorDeposito = ler.nextDouble();
+                    buscado.getConta().depositar(valorDeposito);
+                    break;
+
+                case 3: //Sacar                   System.out.println("Digite o valor: ");
+                    double valorSaque = ler.nextDouble();
+                    buscado.getConta().sacar(valorSaque);
+                    break;
+
+                case 4: //Sair
+                    break;
+            }
+        } else {
             System.out.println("CPF inexistente, tente se cadastrar.");
         }
     }
-
     public void cadastrarCliente(){
         System.out.println("Seu nome: ");
         String nome = ler.next();
