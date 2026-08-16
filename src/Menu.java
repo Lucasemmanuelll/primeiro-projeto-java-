@@ -5,7 +5,7 @@ public class Menu {
 
     Scanner ler = new Scanner(System.in);
 
-    //método construtor da classe
+    //metodo construtor da classe
     public
     Menu(CadastroDeClientes cadastro){
         this.cadastro = cadastro;
