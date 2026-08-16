@@ -1,8 +1,7 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Menu {
-
     private CadastroDeClientes cadastro;
-
     Scanner ler = new Scanner(System.in);
 
     //método construtor da classe
@@ -16,18 +15,21 @@ public class Menu {
         System.out.println("1 – Cadastrar");
         System.out.println("2 – Login");
         System.out.println("3 – Sair");
-
-        int opcao = ler.nextInt();
-        switch(opcao) {
-            case 1:
-                cadastrarCliente();
-                break;
-            case 2:
-                loginusuario();
-                break;
-            case 3:
-                System.out.println("Saindo...");
-                break;
+        try {
+            int opcao = ler.nextInt();
+            switch(opcao) {
+                case 1:
+                    cadastrarCliente();
+                    break;
+                case 2:
+                    loginusuario();
+                    break;
+                case 3:
+                    System.out.println("Saindo...");
+                    break;
+            }
+        }catch (InputMismatchException e)  {
+            System.out.println("Digite apenas números.");
         }
     }
     public void loginusuario() {
@@ -35,35 +37,36 @@ public class Menu {
         String cpf = ler.next();
         Cliente buscado = cadastro.buscarCpf(cpf);
 
-        if(buscado != null) {
-            System.out.println("Seja bem-vindo " + buscado.getNome() + " ! ");
-            System.out.println("-----------Menu----------");
-            System.out.println("1 – Consultar saldo");
-            System.out.println("2 – Depositar");
-            System.out.println("3 – Sacar");
-            System.out.println("4 – Sair");
+        if (buscado != null) {
+            try {
+                System.out.println("Seja bem-vindo " + buscado.getNome() + " ! ");
+                System.out.println("-----------Menu----------");
+                System.out.println("1 – Consultar saldo");
+                System.out.println("2 – Depositar");
+                System.out.println("3 – Sacar");
+                System.out.println("4 – Sair");
 
-            int opcao2 = ler.nextInt();
+                int opcao2 = ler.nextInt();
 
-            //Segundo switch usando a variável buscado(Cliente encontrado).
-            switch (opcao2) {
-                case 1: //Consultar saldo
-                    System.out.println("Saldo: " + buscado.getConta().getSaldo());
-                    break;
-
-                case 2: //Depositar
-                    System.out.println("Quanto você quer depositar?");
-                    double valorDeposito = ler.nextDouble();
-                    buscado.getConta().depositar(valorDeposito);
-                    break;
-
-                case 3: //Sacar                   System.out.println("Digite o valor: ");
-                    double valorSaque = ler.nextDouble();
-                    buscado.getConta().sacar(valorSaque);
-                    break;
-
-                case 4: //Sair
-                    break;
+                switch (opcao2) {
+                    case 1:
+                        System.out.println("Saldo: " + buscado.getConta().getSaldo());
+                        break;
+                    case 2:
+                        System.out.println("Quanto voce quer depositar?");
+                        double valorDeposito = ler.nextDouble();
+                        buscado.getConta().depositar(valorDeposito);
+                        break;
+                    case 3:
+                        System.out.println("Digite o valor: ");
+                        double valorSaque = ler.nextDouble();
+                        buscado.getConta().sacar(valorSaque);
+                        break;
+                    case 4:
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Digite apenas números.");
             }
         } else {
             System.out.println("CPF inexistente, tente se cadastrar.");
