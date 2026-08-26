@@ -7,18 +7,19 @@ public class CadastroDeClientes {
         listaDeClientes.add(cliente);
     }
 
-    public void listaDosCadastrados(){
-        for(Cliente cliente: listaDeClientes) {
+    public void listaDosCadastrados() {
+        for (Cliente cliente : listaDeClientes) {
             System.out.println(cliente);
         }
     }
 
     public Cliente buscarCpf(String cpfBuscado) {
-        for (Cliente cliente: listaDeClientes) {
+        for (Cliente cliente : listaDeClientes) {
             if (cpfBuscado.equals(cliente.getCpfUsuario())) {
                 return cliente;
             }
         }
         return null;
     }
-}
+    }
+

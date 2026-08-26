@@ -1,12 +1,17 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 public class Menu {
     private CadastroDeClientes cadastro;
     Scanner ler = new Scanner(System.in);
 
     //metodo construtor da classe
-    public
-    Menu(CadastroDeClientes cadastro){
+    public Menu(CadastroDeClientes cadastro){
         this.cadastro = cadastro;
     }
 
@@ -32,6 +37,23 @@ public class Menu {
             System.out.println("Digite apenas números.");
         }
     }
+    public void cadastrarCliente(){
+        System.out.println("Seu nome: ");
+        String nome = ler.next();
+        System.out.println("Sua idade: ");
+        int idade = ler.nextInt();
+        System.out.println("Sua cidade: ");
+        String cidade = ler.next();
+        System.out.println("Digite seu CPF: ");
+        String cpf = ler.next();
+
+        Contadigital conta = new Contadigital(nome, 0.0, true);
+        Cliente cadastrado = new Cliente(nome, idade, cidade, cpf, conta);
+        cadastro.adicionarCliente(cadastrado);
+        System.out.println("Você foi Cadastrado!");
+
+    }
+
     public void loginusuario() {
         System.out.println("Digite seu CPF para cadastro: ");
         String cpf = ler.next();
@@ -40,11 +62,12 @@ public class Menu {
         if (buscado != null) {
             try {
                 System.out.println("Seja bem-vindo " + buscado.getNome() + " ! ");
-                System.out.println("-----------Menu----------");
-                System.out.println("1 – Consultar saldo");
-                System.out.println("2 – Depositar");
-                System.out.println("3 – Sacar");
-                System.out.println("4 – Sair");
+                System.out.println("""
+                    -----------Menu----------" 
+                    1 – Consultar saldo.
+                    2 – Depositar.
+                    3 – Sacar.
+                    4 – Sair""");
 
                 int opcao2 = ler.nextInt();
 
@@ -72,20 +95,5 @@ public class Menu {
             System.out.println("CPF inexistente, tente se cadastrar.");
         }
     }
-    public void cadastrarCliente(){
-        System.out.println("Seu nome: ");
-        String nome = ler.next();
-        System.out.println("Sua idade: ");
-        int idade = ler.nextInt();
-        System.out.println("Sua cidade: ");
-        String cidade = ler.next();
-        System.out.println("Digite seu CPF: ");
-        String cpf = ler.next();
 
-        Contadigital conta = new Contadigital(nome, 0.0, true);
-        Cliente cadastrado = new Cliente(nome, idade, cidade, cpf, conta);
-        cadastro.adicionarCliente(cadastrado);
-        System.out.println("Você foi Cadastrado!");
-
-    }
 }

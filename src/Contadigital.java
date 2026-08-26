@@ -11,7 +11,7 @@ public class Contadigital {
 
     public Contadigital(String nome, double saldoInicial, boolean b) {
         this.cliente = getCliente();
-        this.saldo = saldo;
+        this.saldo = getSaldo();
         this.contaAtiva = true;
     }
 

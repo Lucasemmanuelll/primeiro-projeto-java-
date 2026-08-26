@@ -4,5 +4,7 @@ public class Main {
         Menu menu = new Menu(cadastro);
 
         menu.exibirMenu();
+
+
     }
 }
