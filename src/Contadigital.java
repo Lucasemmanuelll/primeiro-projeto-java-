@@ -4,15 +4,8 @@ public class Contadigital {
     private boolean contaAtiva;
 
     //DOIS CONSTRUTORES
-   public Contadigital(Cliente cliente, double saldoInicial) {
-       this.cliente = cliente ;
-       this.saldo = saldoInicial;
-       this.contaAtiva = true;
-      }
-
-    public Contadigital(String nome, double saldoInicial, boolean b) {
-        this.cliente = getCliente();
-        this.saldo = getSaldo();
+    public Contadigital( double saldo, boolean contaAtiva ) {
+        this.saldo = saldo;
         this.contaAtiva = true;
     }
 
