@@ -3,11 +3,12 @@ public class Contadigital {
     private double saldo;
     private boolean contaAtiva;
 
-    public Contadigital(Cliente cliente, double saldoInicial) {
-        this.cliente = cliente;
-        this.saldo = saldoInicial;
-        this.contaAtiva = true;
-    }
+    //DOIS CONSTRUTORES
+   public Contadigital(Cliente cliente, double saldoInicial) {
+       this.cliente = cliente ;
+       this.saldo = saldoInicial;
+       this.contaAtiva = true;
+      }
 
     public Contadigital(String nome, double saldoInicial, boolean b) {
         this.cliente = getCliente();
