@@ -15,28 +15,34 @@ public class Menu {
         this.cadastro = cadastro;
     }
 
-    public void exibirMenu(){
-        System.out.println("-----------Menu----------");
-        System.out.println("1 – Cadastrar");
-        System.out.println("2 – Login");
-        System.out.println("3 – Sair");
-        try {
-            int opcao = ler.nextInt();
-            switch(opcao) {
-                case 1:
-                    cadastrarCliente();
-                    break;
-                case 2:
-                    loginusuario();
-                    break;
-                case 3:
-                    System.out.println("Saindo...");
-                    break;
-            }
-        }catch (InputMismatchException e)  {
-            System.out.println("Digite apenas números.");
+        public void exibirMenu() {
+            int opcao;
+            do {
+                System.out.println("-----------Menu----------");
+                System.out.println("1 – Cadastrar");
+                System.out.println("2 – Login");
+                System.out.println("3 – Sair");
+                try {
+                    opcao = ler.nextInt();
+                    switch (opcao) {
+                        case 1:
+                            cadastrarCliente();
+                            break;
+                        case 2:
+                            loginusuario();
+                            break;
+                        case 3:
+                            System.out.println("Saindo...");
+                            break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Digite apenas números.");
+                    ler.nextLine();
+                    opcao = 0;
+                }
+            } while (opcao != 3);
         }
-    }
+
     public void cadastrarCliente(){
         System.out.println("Seu nome: ");
         String nome = ler.next();
