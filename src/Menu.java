@@ -54,7 +54,7 @@ public class Menu {
         String cpf = ler.next();
 
         //ARRAY DE OBJETO
-        Contadigital conta = new Contadigital(nome, 0.0, true);
+        Contadigital conta = new Contadigital(0.0);
         Cliente cadastrado = new Cliente(nome, idade, cidade, cpf, conta);
         cadastro.adicionarCliente(cadastrado);
         System.out.println("Você foi Cadastrado!");
