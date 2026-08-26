@@ -1,5 +1,5 @@
 public class Contadigital {
-    private double saldo;
+    private double saldoInicial;
     private boolean contaAtiva;
 
     //CONSTRUTOR
