@@ -3,6 +3,7 @@ public class Main {
         CadastroDeClientes cadastro = new CadastroDeClientes();
         Menu menu = new Menu(cadastro);
 
+
         menu.exibirMenu();
 
 

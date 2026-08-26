@@ -1,18 +1,14 @@
 public class Contadigital {
-    private Cliente cliente;
     private double saldo;
     private boolean contaAtiva;
 
-    //DOIS CONSTRUTORES
-    public Contadigital( double saldo, boolean contaAtiva ) {
+    //CONSTRUTOR
+    public Contadigital( double saldo) {
         this.saldo = saldo;
         this.contaAtiva = true;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
+    // GET E SET ( SALDO , CONTA ATIVA)
     public double getSaldo() {
         return saldo;
     }
@@ -21,6 +17,7 @@ public class Contadigital {
         return contaAtiva;
     }
 
+    //METODO DEPOSITAR
     public void depositar(double valor) {
         if (valor > 0 && contaAtiva) {
             saldo += valor;
@@ -30,6 +27,7 @@ public class Contadigital {
         }
     }
 
+    //METODO SACAR
     public void sacar(double valor) {
         if (valor > 0 && valor <= saldo && contaAtiva) {
             saldo -= valor;
@@ -40,14 +38,9 @@ public class Contadigital {
         }
     }
 
+    //METODO ESTADO DA CONTA
     public void desativarConta() {
         contaAtiva = false;
     }
 
-    public void mostrarDados() {
-        System.out.println("Titular: " + cliente.getNome());
-        System.out.println("CPF: " + cliente.getCpfUsuario());
-        System.out.println("Saldo: R$ " + saldo);
-        System.out.println("Conta ativa: " + contaAtiva);
-    }
 }

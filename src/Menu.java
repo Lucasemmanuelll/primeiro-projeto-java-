@@ -1,8 +1,5 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.HashSet;
-import java.util.Set;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,11 +7,13 @@ public class Menu {
     private CadastroDeClientes cadastro;
     Scanner ler = new Scanner(System.in);
 
-    //metodo construtor da classe
+    //CONSTRUTOR DE VARIÁVEL DE REFERÊNCIA (CADASTRO == CADASTRODECLIENTESARRAY)
     public Menu(CadastroDeClientes cadastro){
         this.cadastro = cadastro;
     }
 
+    //MENU
+    int opcao = 0;
         public void exibirMenu() {
             int opcao;
             do {
@@ -43,6 +42,7 @@ public class Menu {
             } while (opcao != 3);
         }
 
+        //METODO CADASTRO
     public void cadastrarCliente(){
         System.out.println("Seu nome: ");
         String nome = ler.next();
@@ -53,6 +53,7 @@ public class Menu {
         System.out.println("Digite seu CPF: ");
         String cpf = ler.next();
 
+        //ARRAY DE OBJETO
         Contadigital conta = new Contadigital(nome, 0.0, true);
         Cliente cadastrado = new Cliente(nome, idade, cidade, cpf, conta);
         cadastro.adicionarCliente(cadastrado);

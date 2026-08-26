@@ -58,8 +58,8 @@ public class Cliente{
         this.conta = conta;
     }
     public void mostrarDados() {
-        System.out.println("Titular: " + getNome();
-        System.out.println("CPF: " + getCpfUsuario();
+        System.out.println("Titular: " + getNome());
+        System.out.println("CPF: " + getCpfUsuario());
         System.out.println("Saldo: R$ " + getConta().getSaldo());
         System.out.println("Conta ativa: " + getConta().getContaAtiva());
     }
