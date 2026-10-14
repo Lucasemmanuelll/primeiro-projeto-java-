@@ -10,8 +10,8 @@ public class CadastroDeClientes {
     }
 
     public void listaDosCadastrados() {
-        for (Cliente cliente : listaDeClientes) {
-            System.out.println(cliente);
+        for (Map.Entry<String, Cliente> cliente : clientes.entrySet()) {
+            System.out.println(cliente.getKey() + " - " + cliente.getValue().getNome());
         }
     }
 
