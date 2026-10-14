@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 public class CadastroDeClientes {
 
+    Map<String, Cliente> clientes = new HashMap<>();
+
     private ArrayList<Cliente> listaDeClientes = new ArrayList<>();
 
     public void adicionarCliente(Cliente cliente) {
