@@ -6,7 +6,9 @@ public class CadastroDeClientes {
     private ArrayList<Cliente> listaDeClientes = new ArrayList<>();
 
     public void adicionarCliente(Cliente cliente) {
-        listaDeClientes.add(cliente);
+        if(!clientes.containsKey(cliente.getCpfUsuario())) {
+            clientes.put(cliente.getCpfUsuario(), cliente);
+        }
     }
 
     public void listaDosCadastrados() {
