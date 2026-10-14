@@ -3,14 +3,14 @@ public class Contadigital {
     private boolean contaAtiva;
 
     //CONSTRUTOR
-    public Contadigital( double saldo) {
-        this.saldo = saldo;
+    public Contadigital( double saldoInicial ) {
+        this.saldoInicial = saldoInicial;
         this.contaAtiva = true;
     }
 
     // GET E SET ( SALDO , CONTA ATIVA)
     public double getSaldo() {
-        return saldo;
+        return saldoInicial;
     }
 
     public boolean getContaAtiva() {
@@ -20,8 +20,8 @@ public class Contadigital {
     //METODO DEPOSITAR
     public void depositar(double valor) {
         if (valor > 0 && contaAtiva) {
-            saldo += valor;
-            System.out.println("Deposito feito! Saldo atual: R$ " + saldo);
+            saldoInicial += valor;
+            System.out.println("Deposito feito! Saldo atual: R$ " + saldoInicial);
         } else {
             System.out.println("Deposito invalido. Verifique o valor ou se a conta esta ativa.");
         }
@@ -29,12 +29,12 @@ public class Contadigital {
 
     //METODO SACAR
     public void sacar(double valor) {
-        if (valor > 0 && valor <= saldo && contaAtiva) {
-            saldo -= valor;
+        if (valor > 0 && valor <= saldoInicial && contaAtiva) {
+            saldoInicial -= valor;
             System.out.println("Saque de R$ " + valor + " feito!");
-            System.out.println("Saldo atual: R$ " + saldo);
+            System.out.println("Saldo atual: R$ " + saldoInicial);
         } else {
-            System.out.println("Saque invalido. Saldo atual: R$ " + saldo);
+            System.out.println("Saque invalido. Saldo atual: R$ " + saldoInicial);
         }
     }
 
