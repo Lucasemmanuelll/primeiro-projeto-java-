@@ -15,10 +15,12 @@ public class CadastroDeClientes {
         }
     }
 
-    public Cliente buscarCpf(String cpfBuscado) {
-        for (Cliente cliente : listaDeClientes) {
-            if (cpfBuscado.equals(cliente.getCpfUsuario())) {
-                return cliente;
+    public Cliente buscarCpf(String cpf) {
+            if(clientes.containsKey(cpf)) {
+                return clientes.get(cpf);
+            }else{
+                System.out.println("CPF inexistente");
+                return null;
             }
         }
         return null;
