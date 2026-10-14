@@ -1,9 +1,9 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ArrayList;
 public class CadastroDeClientes {
 
     Map<String, Cliente> clientes = new HashMap<>();
-
-    private ArrayList<Cliente> listaDeClientes = new ArrayList<>();
 
     public void adicionarCliente(Cliente cliente) {
         if(!clientes.containsKey(cliente.getCpfUsuario())) {
@@ -24,9 +24,9 @@ public class CadastroDeClientes {
                 System.out.println("CPF inexistente");
                 return null;
             }
-        }
-        return null;
-        //MAP E SET EM CADA CLIENTE CADASTRADO
     }
-    }
+
+
+
+}
 
