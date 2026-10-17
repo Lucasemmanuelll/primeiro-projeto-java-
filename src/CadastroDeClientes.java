@@ -8,6 +8,8 @@ public class CadastroDeClientes {
     public void adicionarCliente(Cliente cliente) {
         if(!clientes.containsKey(cliente.getCpfUsuario())) {
             clientes.put(cliente.getCpfUsuario(), cliente);
+        }else {
+            System.out.println("CPF já cadastrado.");
         }
     }
 
