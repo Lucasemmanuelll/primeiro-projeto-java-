@@ -26,12 +26,12 @@ public class CadastroDeClientes {
     }
 
     public Cliente buscarCpf(String cpf) {
-            if(clientes.containsKey(cpf)) {
-                return clientes.get(cpf);
-            }else{
-                System.out.println("CPF inexistente");
-                return null;
-            }
+        if (clientes.containsKey(cpf)) {
+            return clientes.get(cpf);
+        } else {
+            System.out.println("CPF inexistente");
+            return null;
+        }
     }
 
 
