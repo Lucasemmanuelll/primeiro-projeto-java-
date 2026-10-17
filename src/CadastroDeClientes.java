@@ -18,11 +18,8 @@ public class CadastroDeClientes {
             System.out.println("CPF já cadastrado.");
         }
     }
-
-    public void listaDosCadastrados() {
-        for (Map.Entry<String, Cliente> cliente : clientes.entrySet()) {
-            System.out.println(cliente.getKey() + " - " + cliente.getValue().getNome());
-        }
+    public void removerCliente(String cpfUsuario) {
+        clientes.remove(cpfUsuario);
     }
 
     public Cliente buscarCpf(String cpf) {
